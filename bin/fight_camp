@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require './lib/workout'
+
+FightCamp::CLI.new.call
