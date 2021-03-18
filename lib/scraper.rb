@@ -6,9 +6,11 @@ class Scraper
     def scrap
         binding.pry
         page = Nokogiri::HTML(open("https://joinfightcamp.com/workouts/"))
+        workout_name = page.css(".workout-card-info-col h2").text
     
     end
- #work_outname = page.css(".workout-card-info-col h2").text
- #coach = page.css(".workout-card-info-col").css(".workout-card-trainer")
- #workout_url = page.css("workout workouts-index-workout a") href
+ #workout_name = page.css(".workout-card-info-col h2").text
+ #coach = page.search("p.workout-card-trainer").text
+ #workout_url = page.css(".workouts-index-workout a").attr("href").value
+ #rounds = page.search("p.workout-card-rounds").text
 end
