@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
-require './lib/workout'
+require_relative '../lib/workout'
 
-FightCamp::CLI.new.call
+
+Workout::cli.new.call

@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-require_relative "workout/version"
-require_relative "scraper"
+require_relative "./workout/version"
+require_relative "workout/scraper"
+require_relative "./workout/cli"
 
 module Workout
   class Error < StandardError; end
