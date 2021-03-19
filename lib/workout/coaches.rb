@@ -1,11 +1,10 @@
 class Workout::Coaches 
     attr_accessor :name
 
-    @@all = ["Flo", "Smash", "Smash"]
+    @@all = []
 
     def initilize(name)
         @name = name 
-        @kickboxingWorkout = []
         save
     end
 
@@ -14,6 +13,7 @@ class Workout::Coaches
     end
 
     def self.all
+        Workout::Scraper.scrape_coaches if @@all.empty?
         @@all
     end
 end
