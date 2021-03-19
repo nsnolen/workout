@@ -1,3 +1,4 @@
+require 'pry'
 class Workout::CLI 
 
     def call 
@@ -15,16 +16,21 @@ class Workout::CLI
 
     def input_workout_type
         input = gets.strip.to_i
-        #binding.pry 
-        #display_type if input.valid(input)
+        display_chosen_input(input) if valid(input)
     end
 
-    def valid?(input)
-        binding.pry
-        if input.to_i <= 3 && input.to_i > 0
+    def valid(input)
+        input.to_i <= 3 && input.to_i > 0
     end
 
-    def display_workouts
+    def display_chosen_input(input)
+        if input == 1 
+            puts "flo, smash" 
+        elsif input == 2
+            puts "1, 2, 3"
+        elsif input == 3
+            puts "12, 16, 30"
+        end
         
     end
 

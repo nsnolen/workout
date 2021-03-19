@@ -3,12 +3,13 @@ require 'open-uri'
 
 
 
-class Scraper
+class Workout::Scraper
     
-    def scrap
+    def self.scrap_workout
     
         page = Nokogiri::HTML(open("https://joinfightcamp.com/workouts/"))
         workout_name = page.css(".workout-card-info-col h2").text
+        
     
     end
  #workout_name = page.css(".workout-card-info-col h2").text

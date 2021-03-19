@@ -5,8 +5,6 @@ class Workout:Coaches
 
     def initilize(name)
         @name = name 
-        
-
     end
 
     def save
