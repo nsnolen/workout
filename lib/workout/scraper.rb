@@ -6,10 +6,11 @@ require 'open-uri'
 class Workout::Scraper
     
     def self.scrap_workout
-    
+    binding.pry
         page = Nokogiri::HTML(open("https://joinfightcamp.com/workouts/"))
         workout_name = page.css(".workout-card-info-col h2").text
-        
+        ref_url = page.css(".workouts-index-workout a").attr("href").value
+        Workout::KickboxingWorkout.new(name,ref)
     
     end
  #workout_name = page.css(".workout-card-info-col h2").text
