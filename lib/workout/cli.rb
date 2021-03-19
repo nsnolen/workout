@@ -5,11 +5,7 @@ class Workout::CLI
         puts "Welcome to Fight Camp workouts!"
         workout_type
         gets_workout_sort_by_preference
-       # gets_workout_list
-    
-        #input_next_selection
-       # input_learn_more
-       # display_learn_more
+       
     end
 
     def workout_type
@@ -49,7 +45,8 @@ class Workout::CLI
         @rounds = Workout::Rounds.all 
         @rounds.uniq.each.with_index(1) do |rounds, index| 
          puts "#{index}. #{rounds}"
-     end
+        end
+        pick_your_rounds
     end 
 
     def display_time 
@@ -58,18 +55,17 @@ class Workout::CLI
         @time.uniq.each.with_index(1) do |time, index| 
             puts "#{index}. #{time} minutes"
         end
+        pick_your_time
     end
 
+    def valid(input, data)
+        input.to_i <= data.length && input.to_i > 0
+     end
 
     def pick_your_coach 
         input_coach = gets.strip.to_i
         display_workout_list(input_coach) if valid(input_coach, @coaches)
-
     end
-
-     def valid(input, data)
-        input.to_i <= data.length && input.to_i > 0
-     end
 
      def display_workout_list(input_coach)
         @workout_list = ["workout_1", "workout_2", "workout_3"]
@@ -79,6 +75,29 @@ class Workout::CLI
      end
 
 
+     def pick_your_rounds 
+        input_rounds = gets.strip.to_i
+        display_workout_list(input_rounds) if valid(input_rounds, @rounds)
+    end
+
+     def display_workout_list(input_rounds)
+        @workout_list = ["workout_1", "workout_2", "workout_3"]
+        @workout_list.each.with_index(1) do |workout, index|
+            puts "#{index}. #{workout}"
+        end
+     end
+
+     def pick_your_time 
+        input_time = gets.strip.to_i
+        display_workout_list(input_time) if valid(input_time, @time)
+    end
+
+     def display_workout_list(input_time)
+        @workout_list = ["workout_1", "workout_2", "workout_3"]
+        @workout_list.each.with_index(1) do |workout, index|
+            puts "#{index}. #{workout}"
+        end
+     end
    
 
    
