@@ -28,7 +28,6 @@ class Workout::CLI
     def display_chosen_input(view_by_input)
         if view_by_input == 1 
            display_coaches
-          
         elsif view_by_input == 2
             display_rounds
         elsif view_by_input == 3
@@ -36,16 +35,17 @@ class Workout::CLI
         end
     end
     
-    # def get_coaches 
-    #     @coaches = Workout::Coaches.all 
-    # end
+    #  def get_coaches 
+    #      @coaches = Workout::Coaches.all 
+         
+    #  end
 
     def display_coaches 
         puts "Which coach?! Select the coach you'd like to workout with, by typing the corresponding number!"
        
         @coaches = Workout::Coaches.all  
         @coaches.uniq.each.with_index(1) do |coach, index| 
-            puts "#{index}. #{coach}"
+            puts "#{index}. #{coach.name}"
         end
     end
 

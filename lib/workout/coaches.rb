@@ -3,17 +3,19 @@ class Workout::Coaches
 
     @@all = []
 
-    def initilize(name)
+    def initialize(name)
         @name = name 
         save
-    end
-
-    def save
-        @@all << self 
     end
 
     def self.all
         Workout::Scraper.scrape_coaches if @@all.empty?
         @@all
     end
+
+    def save
+        @@all << self 
+    end
+
+   
 end

@@ -15,6 +15,7 @@ class Workout::Rounds
     end
 
     def self.all
+        Workout::Scraper.scrape_rounds if @@all.empty?
         @@all
     end
 end

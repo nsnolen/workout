@@ -24,10 +24,11 @@ class Workout::Scraper
     def self.scrape_coaches
         page = Nokogiri::HTML(open("https://joinfightcamp.com/workouts/"))
     
-            coach = page.css("p.workout-card-trainer")
+            coach = page.search("p.workout-card-trainer")
             coach.each do |c|
                 name = c.text
                 Workout::Coaches.new(name)
+                
         end
     end
  #workout_name = page.css(".workout-card-info-col h2").text
