@@ -35,18 +35,13 @@ class Workout::CLI
         end
     end
     
-    #  def get_coaches 
-    #      @coaches = Workout::Coaches.all 
-         
-    #  end
-
     def display_coaches 
         puts "Which coach?! Select the coach you'd like to workout with, by typing the corresponding number!"
-       
         @coaches = Workout::Coaches.all  
         @coaches.uniq.each.with_index(1) do |coach, index| 
             puts "#{index}. #{coach.name}"
         end
+        pick_your_coach
     end
 
     def display_rounds 
@@ -66,35 +61,25 @@ class Workout::CLI
     end
 
 
-    # def gets_workout_list
-    #     selected_workout_sort = gets.strip.to_i 
-    #     display_workout_list(view_by_input, selected_workout_sort)
-    # end
+    def pick_your_coach 
+        input_coach = gets.strip.to_i
+        display_workout_list(input_coach) if valid(input_coach, @coaches)
 
-    # def valid(input, data)
-    #     input.to_i <= data.length && input.to_i > 0
-    # end
+    end
 
-    # def display_workout_list(view_by_input, selected_workout_sort)
-    #     if view_by_input == 1
-    #         display_workouts_by_coaches(selected_workout_sort)
-    #      elsif view_by_input == 2 
-    #          display_workouts_by_rounds 
-    #      elsif view_by_input == 3 
-    #         display_workouts_by_time 
-    #      end
-            
+     def valid(input, data)
+        input.to_i <= data.length && input.to_i > 0
+     end
 
-    # end
+     def display_workout_list(input_coach)
+        @workout_list = ["workout_1", "workout_2", "workout_3"]
+        @workout_list.each.with_index(1) do |workout, index|
+            puts "#{index}. #{workout}"
+        end
+     end
 
-    # def display_workouts_by_coaches(selected_workout_sort)
-    #     input_two = selected_workout_sort.to_i - 1
-    #     coach_selected = ["workout 1", "workout 2", "workout 3"]
-    #     coach_selected.each.with_index do |wo, i|
-    #         puts "#{i}. #{wo}"
-    #     end
-    # end
 
+   
 
    
 

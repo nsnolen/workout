@@ -4,7 +4,7 @@ class Workout::KickboxingWorkout
     
     @@all = []
     
-    def initilize(workout_name)  
+    def initialize(workout_name)  
         @workout_name = workout_name 
         @workout_url = workout_url
         save

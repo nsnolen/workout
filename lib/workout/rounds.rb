@@ -3,7 +3,7 @@ class Workout::Rounds
 
     @@all = ["4", "6", "8", "10"]
 
-    def initilize(name)
+    def initialize(name)
         @number = number
         @kickboxingWorkout = []
         save

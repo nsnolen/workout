@@ -3,7 +3,7 @@ class Workout::Time
 
     @@all = ["12", "16", "20", "30"]
 
-    def initilize(minutes)
+    def initialize(minutes)
         @minutes = minutes
         @kickboxingWorkout = []
         save
