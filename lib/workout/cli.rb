@@ -68,36 +68,36 @@ class Workout::CLI
     end
 
      def display_workout_list(input_coach)
-        @workout_list = ["workout_1", "workout_2", "workout_3"]
+        @workout_list = Workout::KickboxingWorkout.all
         @workout_list.each.with_index(1) do |workout, index|
-            puts "#{index}. #{workout}"
+            puts "#{index}. #{workout.workout_name}"
         end
      end
 
 
-     def pick_your_rounds 
-        input_rounds = gets.strip.to_i
-        display_workout_list(input_rounds) if valid(input_rounds, @rounds)
-    end
+    #  def pick_your_rounds 
+    #     input_rounds = gets.strip.to_i
+    #     display_workout_list(input_rounds) if valid(input_rounds, @rounds)
+    # end
 
-     def display_workout_list(input_rounds)
-        @workout_list = ["workout_1", "workout_2", "workout_3"]
-        @workout_list.each.with_index(1) do |workout, index|
-            puts "#{index}. #{workout}"
-        end
-     end
+    #  def display_workout_list(input_rounds)
+    #     @workout_list = ["workout_1", "workout_2", "workout_3"]
+    #     @workout_list.each.with_index(1) do |workout, index|
+    #         puts "#{index}. #{workout}"
+    #     end
+    #  end
 
-     def pick_your_time 
-        input_time = gets.strip.to_i
-        display_workout_list(input_time) if valid(input_time, @time)
-    end
+    #  def pick_your_time 
+    #     input_time = gets.strip.to_i
+    #     display_workout_list(input_time) if valid(input_time, @time)
+    # end
 
-     def display_workout_list(input_time)
-        @workout_list = ["workout_1", "workout_2", "workout_3"]
-        @workout_list.each.with_index(1) do |workout, index|
-            puts "#{index}. #{workout}"
-        end
-     end
+    #  def display_workout_list(input_time)
+    #     @workout_list = ["workout_1", "workout_2", "workout_3"]
+    #     @workout_list.each.with_index(1) do |workout, index|
+    #         puts "#{index}. #{workout}"
+    #     end
+    #  end
    
 
    
