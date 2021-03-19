@@ -26,22 +26,18 @@ class Workout::CLI
     
 
     def display_chosen_input(view_by_input)
-
         if view_by_input == 1 
             display_coaches
-               
         elsif view_by_input == 2
             display_rounds
-          
         elsif view_by_input == 3
             display_time
-           
         end
     end
 
     def display_coaches 
         puts "Which coach?! Select the coach you'd like to workout with, by typing the corresponding number!"
-        @coaches = ["Flo", "Smash", "Smash"]
+        @coaches = Workout::Coaches.all  
         @coaches.uniq.each.with_index(1) do |coach, index| 
             puts "#{index}. #{coach}"
         end
@@ -49,7 +45,7 @@ class Workout::CLI
 
     def display_rounds 
         puts "How many round?! Select the number of the rounds you'd like to workout by typing the corresponding number!"
-        @rounds = ["4", "6", "8", "10"]
+        @rounds = Workout::Rounds.all 
         @rounds.uniq.each.with_index(1) do |rounds, index| 
          puts "#{index}. #{rounds}"
      end
@@ -57,38 +53,38 @@ class Workout::CLI
 
     def display_time 
         puts "How long?! Select the time you'd like to workout by typing the corresponding number!"
-        @time = ["12", "16", "20", "30"]
+        @time = Workout::Time.all
         @time.uniq.each.with_index(1) do |time, index| 
             puts "#{index}. #{time} minutes"
         end
+    end
+
+
+    def gets_workout_list
+        selected_workout_sort = gets.strip.to_i 
+        display_workout_list(view_by_input, selected_workout_sort)
     end
 
     def valid(input, data)
         input.to_i <= data.length && input.to_i > 0
     end
 
-
-    def gets_workout_list
-        selected_workout_sort = gets.strip.to_i 
-        display_workout_list(selected_workout_sort)
-    end
-
-    def display_workout_list(selected_workout_sort)
+    def display_workout_list(view_by_input, selected_workout_sort)
         if view_by_input == 1
-            display_workouts_by_coaches
-        elsif view_by_input == 2 
-            display_workouts_by_rounds 
-        elsif view_by_input == 3 
+            display_workouts_by_coaches(selected_workout_sort)
+         elsif view_by_input == 2 
+             display_workouts_by_rounds 
+         elsif view_by_input == 3 
             display_workouts_by_time 
-        end
+         end
             
 
     end
 
     def display_workouts_by_coaches(selected_workout_sort)
         input_two = selected_workout_sort.to_i - 1
-        workouts = ["workout 1", "workout 2", "workout 3"]
-        workout.each.with_index do |wo, i|
+        coach_selected = ["workout 1", "workout 2", "workout 3"]
+        coach_selected.each.with_index do |wo, i|
             puts "#{i}. #{wo}"
         end
     end

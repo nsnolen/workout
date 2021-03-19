@@ -1,10 +1,11 @@
 class Workout::Rounds
     attr_accessor :number
 
-    @@all = []
+    @@all = ["4", "6", "8", "10"]
 
     def initilize(name)
         @number = number
+        @kickboxingWorkout = []
         save
 
     end

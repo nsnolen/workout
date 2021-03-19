@@ -1,10 +1,12 @@
-class Workout:Coaches 
+class Workout::Coaches 
     attr_accessor :name
 
-    @@all = []
+    @@all = ["Flo", "Smash", "Smash"]
 
     def initilize(name)
         @name = name 
+        @kickboxingWorkout = []
+        save
     end
 
     def save

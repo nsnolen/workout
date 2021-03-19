@@ -1,10 +1,11 @@
 class Workout::Time 
     attr_accessor :minutes
 
-    @@all = []
+    @@all = ["12", "16", "20", "30"]
 
     def initilize(minutes)
         @minutes = minutes
+        @kickboxingWorkout = []
         save
     end
 
