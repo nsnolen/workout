@@ -4,15 +4,15 @@ class Workout::KickboxingWorkout
     
     @@all = []
     
-    def initialize(students) 
-        students.each do |attribute, value|
+    def initialize(workouts) 
+        workouts.each do |attribute, value|
             self.send("#{attribute}=", value)
         end
         save
     end
 
-    def self.create_from_collection(workouts)
-        workouts.each{|workout| KickboxingWorkout.new(workout)}
+    def self.create_from_hash(workouts)
+        scrape_workouts.each{|workout| KickboxingWorkout.new(workout)}
     end
 
     def save

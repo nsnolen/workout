@@ -1,7 +1,7 @@
 require 'pry'
 class Workout::CLI 
 
-    def call 
+    def call
         puts "Welcome to Fight Camp workouts!"
         workout_type
         gets_workout_sort_by_preference
@@ -70,6 +70,7 @@ class Workout::CLI
      def display_workout_list(input_coach)
         @workout_list = Workout::KickboxingWorkout.all
         @workout_list.each.with_index(1) do |workout, index|
+            binding.pry
             puts "#{index}. #{workout.workout_name}"
         end
      end

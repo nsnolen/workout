@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /mnt/c/Users/nolen/dev/flatiron/projects/workout/lib/workout/scraper.rb:18 Workout::Scraper.scrape_workouts:
+
+    [1;34m13[0m:         workouts = []
+    [1;34m14[0m:         num_pages_to_scrape = [1;34m5[0m
+    [1;34m15[0m:         count = [1;34m0[0m
+    [1;34m16[0m: 
+    [1;34m17[0m:         [32mwhile[0m (num_pages_to_scrape > count)
+ => [1;34m18[0m:             binding.pry
+    [1;34m19[0m:             workout = page.css([31m[1;31m"[0m[31m.workout-card-info-col h2[1;31m"[0m[31m[0m).each [32mdo[0m |w| 
+    [1;34m20[0m:                workout_name = w.text 
+    [1;34m21[0m:                workout_url = w.css([31m[1;31m"[0m[31m.workouts-index-workout a[1;31m"[0m[31m[0m).css.attr([31m[1;31m"[0m[31mhref[1;31m"[0m[31m[0m)
+    [1;34m22[0m:             
+    [1;34m23[0m:             [32mend[0m
+
