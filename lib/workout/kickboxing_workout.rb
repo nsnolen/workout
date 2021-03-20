@@ -4,10 +4,15 @@ class Workout::KickboxingWorkout
     
     @@all = []
     
-    def initialize(workout_name)  
-        @workout_name = workout_name 
-        @workout_url = workout_url
+    def initialize(students) 
+        students.each do |attribute, value|
+            self.send("#{attribute}=", value)
+        end
         save
+    end
+
+    def self.create_from_collection(workouts)
+        workouts.each{|workout| KickboxingWorkout.new(workout)}
     end
 
     def save
