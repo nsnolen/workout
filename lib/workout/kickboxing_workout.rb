@@ -1,18 +1,14 @@
 class Workout::KickboxingWorkout
-    attr_accessor :workout_name, :workout_url
-    attr_reader :coaches, :time, :rounds
+    attr_accessor :workout_name, :workout_url, :coach, :rounds, :time, :details
     
     @@all = []
-    
-    def initialize(workouts) 
-        workouts.each do |attribute, value|
-            self.send("#{attribute}=", value)
-        end
-        save
-    end
 
-    def self.create_from_hash(workouts)
-        scrape_workouts.each{|workout| KickboxingWorkout.new(workout)}
+    def initialize(workout_name, workout_url, coach)
+       @workout_name = workout_name if workout_name
+       @workout_url = workout_url if workout_url
+       @coach = coach if coach
+      # @rounds = rounds if rounds
+        save
     end
 
     def save

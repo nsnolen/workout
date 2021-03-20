@@ -1,11 +1,10 @@
 class Workout::Rounds
     attr_accessor :number
 
-    @@all = ["4", "6", "8", "10"]
+    @@all = []
 
-    def initialize(name)
+    def initialize(number)
         @number = number
-        @kickboxingWorkout = []
         save
 
     end
@@ -18,4 +17,6 @@ class Workout::Rounds
         Workout::Scraper.scrape_rounds if @@all.empty?
         @@all
     end
+
+
 end

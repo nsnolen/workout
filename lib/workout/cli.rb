@@ -33,7 +33,7 @@ class Workout::CLI
     
     def display_coaches 
         puts "Which coach?! Select the coach you'd like to workout with, by typing the corresponding number!"
-        @coaches = Workout::Coaches.all  
+        @coaches =  Workout::Coaches.all
         @coaches.uniq.each.with_index(1) do |coach, index| 
             puts "#{index}. #{coach.name}"
         end
@@ -42,17 +42,17 @@ class Workout::CLI
 
     def display_rounds 
         puts "How many round?! Select the number of the rounds you'd like to workout by typing the corresponding number!"
-        @rounds = Workout::Rounds.all 
-        @rounds.uniq.each.with_index(1) do |rounds, index| 
-         puts "#{index}. #{rounds}"
+        @rounds = Workout::Rounds.all.uniq!
+        @rounds.each.with_index(1) do |round, index|
+         puts "#{index}. #{round.number}"
         end
-        pick_your_rounds
+       pick_your_rounds
     end 
 
     def display_time 
         puts "How long?! Select the time you'd like to workout by typing the corresponding number!"
         @time = Workout::Time.all
-        @time.uniq.each.with_index(1) do |time, index| 
+        @time.each.with_index(1) do |time, index| 
             puts "#{index}. #{time} minutes"
         end
         pick_your_time
@@ -70,16 +70,11 @@ class Workout::CLI
      def display_workout_list(input_coach)
         @workout_list = Workout::KickboxingWorkout.all
         @workout_list.each.with_index(1) do |workout, index|
-            binding.pry
             puts "#{index}. #{workout.workout_name}"
         end
      end
 
 
-    #  def pick_your_rounds 
-    #     input_rounds = gets.strip.to_i
-    #     display_workout_list(input_rounds) if valid(input_rounds, @rounds)
-    # end
 
     #  def display_workout_list(input_rounds)
     #     @workout_list = ["workout_1", "workout_2", "workout_3"]
