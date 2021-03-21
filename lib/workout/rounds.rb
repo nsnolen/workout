@@ -18,5 +18,10 @@ class Workout::Rounds
         @@all
     end
 
+   # def add_workout(kickboxing_workout)
+       # @kickboxing_workout << kickboxing_workout if !@kickboxing_workout.include?(kickboxing_workout)
+        #kickboxing_workout.rounds = self if kickboxing_workout.rounds != self
+   #end
+
 
 end

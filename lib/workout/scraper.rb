@@ -7,16 +7,16 @@ class Workout::Scraper
 
     def self.scrape_workouts
         page = Nokogiri::HTML(open("https://joinfightcamp.com/workouts/"))
-        num_pages_to_scrape = 5
+        num_pages_to_scrape = 3
         count = 0
 
         while (num_pages_to_scrape > count)
             row = page.css(".workout-card-info-row").each do |x|
                 workout_name = x.css(".workout-card-info-col h2").text 
                 workout_url = x.css(".workouts-index-workout a").attr("href")
-                coach = x.search("p.workout-card-trainer").text
-                #rounds = x.("p.workout-card-rounds-nbr").text
-                Workout::KickboxingWorkout.new(workout_name, workout_url, coach)
+                coaches = x.search("p.workout-card-trainer").text
+                rounds = x.css("p.workout-card-rounds-nbr").text
+                Workout::KickboxingWorkout.new(workout_name, coaches, rounds)
             end
             
            # workout_url = page.css(".workouts-index-workout a").attr("href").value

@@ -9,8 +9,8 @@ class Workout::Coaches
     end
 
     def self.all
-        Workout::Scraper.scrape_coaches if @@all.empty?
-        @@all
+       # Workout::Scraper.scrape_workouts if @@all.empty?
+       @@all
     end
 
     def save
