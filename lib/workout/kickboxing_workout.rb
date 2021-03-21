@@ -1,16 +1,21 @@
 class Workout::KickboxingWorkout
-    attr_accessor :workout_name, :workout_url, :rounds, :time, :details
-    attr_reader :coaches
+    attr_accessor :workout_name, :workout_url, :rounds, :time, :details, :coaches
     
     @@all = []
 
-    def initialize(workout_name, coaches, rounds)
-      
-       @workout_name = workout_name if workout_name
-       #@workout_url = workout_url if workout_url
-       @coaches = coaches if coaches
-       @rounds = rounds if rounds
+    def initialize(kickboxing_workout)
+      kickboxing_workout.each do |attribute, value|
+        self.send("#{attribute}=", value)
+      end
         save
+    end
+
+    def self.create_from_collection(workout_array)
+        workout_array.each{|wo| Workout::KickboxingWorkout.new(wo)}
+    end
+
+    def add_workout_attributes(attributes_hash)
+        attributes_hash.each{|attribute, value| self.send("#attribute}=", value)}
     end
 
     def save
@@ -18,13 +23,7 @@ class Workout::KickboxingWorkout
     end
     
     def self.all
-        Workout::Scraper.scrape_workouts if @@all.empty?
         @@all
     end
 
-    def coaches=(coaches)
-        @coaches = coaches 
-        coaches.add_workout(self) unless coaches.kickboxing_workout.include?(self)
-    end
-   
 end
